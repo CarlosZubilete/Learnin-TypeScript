@@ -1,44 +1,28 @@
-// enum nameEnum { value = key , value = key }
-
-// By default, TypeScript gives numbers starting at 0 = { 0 ,1 , 2, 3 , ...}
-enum WeekDays {
-  Monday,
-  Tuesday,
-  Wednesday,
-  Thursday,
-  Friday,
-  Saturday,
-  Sunday,
-}
-
-let dayNumber: WeekDays = WeekDays.Wednesday;
-console.log("dayNumber: ", dayNumber); // 2
-
-// Value defined: You can set your own numbers.
-enum Colors {
-  Red = 2,
-  Green = 4,
-  Blue = 6,
-}
-
-let color: string = Colors[4];
-console.log("color: ", color); // Green: (only works with numbers)
-
-// look at this "string enums"
-enum Month {
-  January = "first",
-  February = "second",
-  March = "third",
-  April = "fourth",
-  May = "fifth",
-}
-
-// ERROR -> With string enums, you can only go one way (key → value).
-// let month: string = Month["fifth"];
+// * ARRAYS
+// Declare
+const list: number[] = [100, 50, 35]; // more used in java.
+const anotherList: Array<number> = [-100, -50, -35]; // more used in Typescript.
 //
-let month: string = Month.May;
-console.log("month: ", month); // "fifth"
+const listOnlyDefined: Array<number> = new Array(3); // only size defined.
+const listThree: Array<number> = new Array(2, 5, 7); // size and values defined.
+const listFour: number[] = new Array(2, 4, 6); // size and values defined.
 
-// Allows to define a structure of fixed numerical values.
-// They are associated with expression.
-// They ara commonly used in interface design.
+// * Iterate an array
+// for statement:
+for (let i = 0; i < list.length; i++) {
+  console.log("for traditional: ", list[i]); // 1OO - 50 - 35
+}
+
+// For of
+for (let x of anotherList) {
+  console.log("for of: ", x);
+}
+
+// for in
+for (let y in listThree) {
+  console.log("for in: ", y);
+}
+
+// size:
+const sizeList: number = list.length;
+console.log("sizeList: ", sizeList);
