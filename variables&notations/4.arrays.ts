@@ -13,7 +13,7 @@ for (let i = 0; i < list.length; i++) {
   console.log("for traditional: ", list[i]); // numbers: 1OO | 50 | 35
 }
 
-// For of: it reads each element/value directly. In array used more common
+// * For of: it reads each element/value directly. In array used more common
 for (let x of anotherList) {
   console.log("for of: ", x); // numbers:  -100 | -50 | -35
 }
@@ -24,7 +24,7 @@ for (const fruit of fruits) {
   console.log(fruit); // "apple", "banana", "pear"
 }
 
-// for in: Used to get indexes (or keys) of an array or object. In object more common
+// * for in: Used to get indexes (or keys) of an array or object.
 
 // It returns the position (index) as a string:
 for (let y in listThree) {
@@ -42,13 +42,14 @@ for (const index in fruits) {
 
 const person = { name: "Carlos", age: 28 };
 
+// * In object more common
 for (const key in person) {
   console.log(key, person[key]);
   // name Carlos
   // age 28
 }
 
-// size:
+// * size:
 const sizeList: number = list.length;
 console.log("sizeList: ", sizeList); // number: 3
 
@@ -85,7 +86,7 @@ const isMariano: number = names.indexOf("Mariano");
 console.log("Is mariano at the list : " + isMariano); // returns 1 , (-1 it's not found)
 
 // -----
-// * list sorting: reverse() | sorted() - sorted( a , b ) |
+// * list sorting: reverse() | sorted() - sorted( a , b ) | join(",")
 //
 const evenNumbers: number[] = [20, 2, 100, 88, 12];
 const evenNumbersReserved: Array<number> = evenNumbers.reverse();
@@ -125,10 +126,92 @@ const evenNumbersSorted: Array<number> = evenNumbers.sort(
 for (let x of evenNumbersSorted) {
   console.log("evenNumbersSorted: ", x);
 }
-//
-
+// convert to string
 const evenNumbersString: string = evenNumbers.join(", ");
 console.log("evenNumbersString: " + evenNumbersString); // 100, 12, 2, 20, 88"
 console.log("typeof: " + typeof evenNumbersString); // string
 
+// -----
+// * Two-dimensional arrays
+const arrays: string[][] = [
+  ["1", "2", "3"],
+  ["Carlos", "Mariano", "Lorena"],
+  ["Data Science", "Architecture Software", "Teacher"],
+];
+//
+for (let row of arrays) {
+  for (let eachValue of row) {
+    console.log("eachValue: " + eachValue); // "1" "2" "3" "Carlos" ...
+  }
+}
+
 // ----
+// * forEach() -> allows iterate the array and execute a function as a callback each element
+/* 
+  array.forEach( function (element, index , array) {
+    script ..... 
+  })
+
+  array.forEach((element, index , array) =>  {
+    script ..... 
+  })
+*/
+const vegetables: Array<string> = [
+  "Broccoli",
+  "Carrot",
+  "Potato",
+  "Onion",
+  "Lettuce",
+  "Garlic",
+];
+
+vegetables.forEach((element) => {
+  console.log("Each vegetable: " + element);
+});
+
+// * split() -> we can transform to string to array
+
+const vegetablesString: string = "Broccoli,Carrot,Potato,Onion,Lettuce,Garlic";
+
+const vegetableArray: string[] = vegetablesString.split(",");
+
+vegetableArray.forEach((element, index) => {
+  console.log("This " + element + " is on index " + index);
+});
+
+// * every() -> allows us ot iterate an array and tests whether all elements satisfy a condition provided.
+// * It returns a boolean value
+/*  
+  function isName(value:type):boolean {}
+*/
+const anotherListNumber: number[] = [-1, 2, 100, -20, 20, -100, 56];
+
+const isArrayPositive: boolean = anotherListNumber.every(
+  (element) => element >= 0
+);
+console.log("Is Array Positive: " + isArrayPositive); // false
+
+// * filter() -> It seems like to "every()" but returns an new array with elements that meet the condition
+const onlyPositiveArray: number[] = anotherListNumber.filter(
+  (element) => element > 0
+);
+
+for (const x of onlyPositiveArray) {
+  console.log("Only Positive Array: " + x);
+}
+
+// * map() -> it can create a new array like a "filter()" but its difference is to execute a function for each element of the array.
+
+const onlyNegativeNumber: number[] = onlyPositiveArray.map((item) => item * -1);
+for (const x of onlyNegativeNumber) {
+  console.log("Only Positive Array: " + x);
+}
+
+const onlyNegative: number[] = anotherListNumber.map((item) => {
+  if (item < 0) return item; // early return
+  return item * -1;
+});
+
+for (const x of onlyNegative) {
+  console.log("Only Positive Array: " + x);
+}

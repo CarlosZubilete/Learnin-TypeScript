@@ -1,4 +1,4 @@
-// enum nameEnum { key = value , key = value }
+// enum nameEnum { key = value , key = value , ... }
 
 // 1. By default, TypeScript gives numbers starting at 0 = { 0 ,1 , 2, 3 , ...}
 enum WeekDays {
@@ -39,6 +39,6 @@ enum Month {
 let month: string = Month.May;
 console.log("month: ", month); // "fifth"
 
-// *Allows to define a structure of fixed numerical values.
+// *Allows to define a structure of fixed numerical values. (commonly)
 // *They are associated with expression.
 // *They ara commonly used in interface design.
