@@ -1,4 +1,4 @@
-// *Symbol: A symbol can be used a property key (like a unique key ) in a object
+// *Symbol: A symbol can be used a property key (like a unique key) in a object
 // Declare a new Symbol (optional descriptor for debugging)
 let mySymbol: symbol = Symbol();
 if (typeof mySymbol === "symbol") {
