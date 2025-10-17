@@ -1,4 +1,4 @@
-// *
+// * it recommends that each class has its own file. "ExampleClass.ts"
 
 class Person {
   private name: string;
@@ -9,7 +9,7 @@ class Person {
   /*  another way to declare our constructor...
    * constructor(name: string = "unname") { this.name = name; }
    */
-  // constructor(){} // In typescript , we only can have a one "constructor"
+
   set(name: string): void {
     this.name = name;
   }
@@ -36,3 +36,9 @@ console.log(person2.introduceYourself());
   [LOG]: "Hi everyone, I'm unname" 
   [LOG]: "Hi everyone, I'm Mariano" 
 */
+
+/**
+ * It looks like an interface, then: What's the difference?
+ * When you define a Class, you can declare methods and properties that are access: private, protected and public
+ * At interface , all their parameters will be public
+ */
