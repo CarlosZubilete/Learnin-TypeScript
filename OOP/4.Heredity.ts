@@ -1,4 +1,4 @@
-//* Heredity:
+//* Heredity and Polymorphism
 /* Paradigm diagrams
   + => public
   # => protected
